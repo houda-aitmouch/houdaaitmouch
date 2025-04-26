@@ -1,0 +1,1434 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio of Houda AIT MOUCH</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+      onload="this.media='all'"
+      onerror="this.href='/path/to/local/tailwind.min.css'"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #6366f1;
+        --secondary: #1f2937;
+        --accent: #f59e0b;
+        --light: #f3f4f6;
+        --dark: #111827;
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", sans-serif;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        background-color: var(--light);
+        color: var(--secondary);
+        overflow-x: hidden;
+      }
+
+      #particles-js {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 0;
+      }
+
+      header {
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        color: white;
+        padding: 8rem 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .header-content {
+        position: relative;
+        z-index: 1;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      .header-text {
+        flex: 1;
+      }
+
+      .header-image {
+        width: 20rem;
+        height: 20rem;
+        border-radius: 50%;
+        border: 6px solid white;
+        object-fit: cover;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        transition: var(--transition);
+      }
+
+      .header-image:hover {
+        transform: scale(1.05);
+      }
+
+      .name {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+      }
+
+      .title {
+        font-size: 1.5rem;
+        font-weight: 400;
+        margin-bottom: 1.5rem;
+        opacity: 0.9;
+      }
+
+      .language-switch {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+      }
+
+      .language-btn {
+        padding: 0.75rem 1.5rem;
+        background-color: var(--accent);
+        color: white;
+        border: none;
+        border-radius: 9999px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .language-btn:hover {
+        background-color: #7c3aed;
+        transform: translateY(-2px);
+      }
+
+      nav {
+        background-color: white;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .nav-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        display: flex;
+        justify-content: center;
+      }
+
+      .nav-link {
+        padding: 1.25rem 1.75rem;
+        text-decoration: none;
+        color: var(--secondary);
+        font-weight: 600;
+        font-size: 1rem;
+        transition: var(--transition);
+        position: relative;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--primary);
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 3px;
+        background-color: var(--accent);
+        transition: var(--transition);
+      }
+
+      .nav-link:hover::after,
+      .nav-link.active::after {
+        width: 70%;
+      }
+
+      section {
+        padding: 5rem 0;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 3.5rem;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        position: relative;
+        display: inline-block;
+        padding-bottom: 0.75rem;
+        color: var(--secondary);
+      }
+
+      .section-title h2::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 5rem;
+        height: 4px;
+        background-color: var(--accent);
+      }
+
+      .skills-tabs {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .tab-btn {
+        padding: 0.75rem 1.5rem;
+        background-color: white;
+        border: 2px solid var(--primary);
+        border-radius: 9999px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .tab-btn.active {
+        background-color: var(--primary);
+        color: white;
+      }
+
+      .tab-btn:hover {
+        background-color: var(--primary);
+        color: white;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+        gap: 1.5rem;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      .skill-card {
+        background-color: white;
+        padding: 1.5rem;
+        border-radius: 0.75rem;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        transition: var(--transition);
+        transform: perspective(1000px) rotateY(0deg);
+      }
+
+      .skill-card:hover {
+        transform: perspective(1000px) rotateY(5deg) translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .skill-card h3 {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .skill-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.75rem;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--secondary);
+      }
+
+      .skill-item i {
+        color: var(--accent);
+        font-size: 1.25rem;
+      }
+
+      .timeline {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .timeline::after {
+        content: "";
+        position: absolute;
+        width: 8px;
+        background-color: #e5e7eb;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -4px;
+      }
+
+      .timeline-item {
+        padding: 0.75rem 3rem;
+        position: relative;
+        width: 50%;
+        box-sizing: border-box;
+      }
+
+      .timeline-item::after {
+        content: "";
+        position: absolute;
+        width: 1.75rem;
+        height: 1.75rem;
+        background-color: white;
+        border: 5px solid var(--primary);
+        border-radius: 50%;
+        top: 1rem;
+        z-index: 1;
+      }
+
+      .left {
+        left: 0;
+      }
+
+      .right {
+        left: 50%;
+      }
+
+      .left::after {
+        right: -0.875rem;
+      }
+
+      .right::after {
+        left: -0.875rem;
+      }
+
+      .timeline-content {
+        padding: 1.5rem;
+        background-color: white;
+        border-radius: 0.5rem;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        transition: var(--transition);
+      }
+
+      .timeline-content:hover {
+        transform: translateY(-5px);
+      }
+
+      .timeline-date {
+        font-size: 1rem;
+        color: var(--primary);
+        font-weight: 600;
+      }
+
+      .timeline-title {
+        font-size: 1.25rem;
+        margin: 0.75rem 0;
+        font-weight: 700;
+        color: var(--secondary);
+      }
+
+      .timeline-location {
+        font-size: 1rem;
+        color: #6b7280;
+        font-style: italic;
+      }
+
+      .project-image {
+        width: 100%;
+        height: 16.5rem;
+        object-fit: cover;
+        border-radius: 0.5rem;
+        margin-bottom: 1rem;
+        display: block;
+      }
+      .certification-image {
+        width: 100%;
+        height: 10rem;
+        object-fit: cover;
+        border-radius: 0.5rem;
+        margin-bottom: 1rem;
+        display: block;
+      }
+
+      .project-description {
+        margin-bottom: 1rem;
+        line-height: 1.7;
+        font-size: 1rem;
+        color: #4b5563;
+      }
+
+      .project-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+
+      .tech-tag {
+        font-size: 0.875rem;
+        padding: 0.375rem 0.75rem;
+        background-color: #e5e7eb;
+        border-radius: 9999px;
+        color: var(--secondary);
+      }
+
+      .project-icon {
+        font-size: 2rem;
+        color: var(--primary);
+        margin-bottom: 0.75rem;
+      }
+
+      .experience-item {
+        margin-bottom: 3rem;
+        background-color: white;
+        border-radius: 0.75rem;
+        padding: 1.75rem;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        transition: var(--transition);
+      }
+
+      .experience-item:hover {
+        transform: translateY(-5px);
+      }
+
+      .experience-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        align-items: flex-start;
+      }
+
+      .job-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--secondary);
+      }
+
+      .company {
+        font-size: 1.125rem;
+        color: var(--primary);
+        font-weight: 600;
+      }
+
+      .experience-date {
+        font-size: 1rem;
+        color: #6b7280;
+      }
+
+      .experience-description ul {
+        list-style-type: none;
+        padding-left: 0;
+      }
+
+      .experience-description li {
+        position: relative;
+        padding-left: 1.75rem;
+        margin-bottom: 0.75rem;
+        line-height: 1.7;
+      }
+
+      .experience-description li:before {
+        content: "•";
+        color: var(--accent);
+        font-size: 1.3rem;
+        position: absolute;
+        left: 0.375rem;
+        top: -0.1875rem;
+      }
+
+      .technologies-used {
+        margin-top: 1rem;
+      }
+
+      .technologies-used h4 {
+        font-size: 1.125rem;
+        margin-bottom: 0.75rem;
+        font-weight: 600;
+        color: var(--secondary);
+      }
+
+      .certifications-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+        gap: 3rem;
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+
+      .certification-card {
+        padding: 2.5rem;
+        background-color: white;
+        border-radius: 0.75rem;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: var(--transition);
+        transform: perspective(1000px) rotateY(0deg);
+      }
+
+      .certification-card:hover {
+        transform: perspective(1000px) rotateY(5deg) translateY(-5px);
+      }
+
+      .certification-icon {
+        font-size: 2.75rem;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .certification-title {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+        font-weight: 700;
+        color: var(--secondary);
+      }
+
+      .certification-issuer {
+        font-size: 1rem;
+        color: #6b7280;
+      }
+
+      .contact-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+        gap: 2rem;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      .contact-info-card {
+        background-color: white;
+        padding: 1.75rem;
+        border-radius: 0.75rem;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: var(--transition);
+      }
+
+      .contact-info-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .contact-icon-large {
+        font-size: 2.75rem;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+
+      .contact-method {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+        color: var(--secondary);
+      }
+
+      .contact-detail {
+        color: var(--secondary);
+        font-size: 1.125rem;
+      }
+
+      footer {
+        background-color: var(--dark);
+        color: white;
+        padding: 3rem 0;
+        text-align: center;
+      }
+
+      .footer-content {
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      .footer-social {
+        margin: 1.5rem 0;
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+      }
+
+      .social-icon {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+      }
+
+      .social-icon:hover {
+        background-color: var(--accent);
+        transform: translateY(-5px);
+      }
+
+      .social-icon i {
+        font-size: 1.25rem;
+        color: white;
+      }
+
+      .footer-copyright {
+        margin-top: 1.5rem;
+        font-size: 1rem;
+        opacity: 0.8;
+      }
+
+      .bg-gray-100 {
+        background-color: var(--light);
+      }
+
+      @media (max-width: 768px) {
+        .header-content {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .header-text {
+          margin-bottom: 2.5rem;
+        }
+
+        .header-image {
+          width: 16rem;
+          height: 16rem;
+        }
+
+        .timeline::after {
+          left: 2.125rem;
+        }
+
+        .timeline-item {
+          width: 100%;
+          padding-left: 5rem;
+          padding-right: 1.75rem;
+          margin-bottom: 2rem;
+        }
+
+        .timeline-item::after {
+          left: 1.375rem;
+        }
+
+        .right {
+          left: 0;
+        }
+
+        .timeline-content {
+          width: 100%;
+        }
+
+        .nav-container {
+          flex-wrap: wrap;
+        }
+
+        .nav-link {
+          padding: 1rem;
+          font-size: 0.875rem;
+        }
+
+        .section-title h2 {
+          font-size: 2rem;
+        }
+
+        .name {
+          font-size: 2.25rem;
+        }
+
+        .title {
+          font-size: 1.25rem;
+        }
+
+        .project-image,
+        .certification-image {
+          height: 8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div id="particles-js"></div>
+      <div class="language-switch">
+        <button
+          class="language-btn"
+          onclick="window.location.href='index.html'"
+        >
+          Français
+        </button>
+      </div>
+      <div class="header-content">
+        <div class="header-text">
+          <h1 class="name">Houda AIT MOUCH</h1>
+          <p class="title">Software Engineer & Data Scientist</p>
+          <p>
+            Passionate about software development and data analysis, I create
+            innovative solutions at the intersection of engineering and
+            artificial intelligence.
+          </p>
+          <div class="contact-info flex flex-wrap gap-4 mt-6">
+            <div class="flex items-center gap-2">
+              <i class="fas fa-envelope text-white text-lg"></i>
+              <span>aitmouchhouda4@gmail.com</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fas fa-phone text-white text-lg"></i>
+              <span>+212 7 61 80 54 37</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <i class="fas fa-map-marker-alt text-white text-lg"></i>
+              <span>Rabat, Morocco</span>
+            </div>
+          </div>
+        </div>
+        <img
+          src="/Users/HouDa/Downloads/profile.JPG"
+          alt="Houda AIT MOUCH"
+          class="header-image"
+        />
+      </div>
+    </header>
+
+    <nav>
+      <div class="nav-container">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#certifications" class="nav-link">Certifications</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+    </nav>
+
+    <section id="about">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="section-title">
+          <h2>About Me</h2>
+        </div>
+        <div class="text-lg mb-8 text-gray-700">
+          <p class="mb-6">
+            A second-year student in Data Science and Internet of Things (IoT)
+            at ENSIAS, I combine skills in software engineering and data science
+            to tackle complex challenges. Driven by intellectual curiosity and
+            analytical rigor, I am passionate about creating innovative
+            solutions.
+          </p>
+          <p>
+            As the events coordinator at the IEEE ENSIAS Club, I organize
+            conferences such as "Coding the Future: Shape Your Tech Job
+            Revolution" and manage events like "Becoming an Architect of
+            Innovation," enhancing my project management and communication
+            skills.
+          </p>
+        </div>
+
+        <div class="skills-grid" id="software-skills">
+          <div class="skill-card">
+            <h3><i class="fas fa-code"></i> Web & Mobile Development</h3>
+            <div class="skill-item">
+              <i class="fas fa-check-circle"></i> HTML/CSS
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-check-circle"></i> JavaScript
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-check-circle"></i> React JS
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-check-circle"></i> Laravel
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-check-circle"></i> J2EE
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-check-circle"></i> Spring Boot
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-check-circle"></i> Java (Android)
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3><i class="fas fa-tools"></i> DevOps & Administration</h3>
+            <div class="skill-item">
+              <i class="fas fa-check-circle"></i> Docker
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-check-circle"></i> Kubernetes
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-check-circle"></i> Git
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-check-circle"></i> Jenkins
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-check-circle"></i> Linux/Unix
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3><i class="fas fa-database"></i> Databases</h3>
+            <div class="skill-item">
+              <i class="fas fa-check-circle"></i> MySQL
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-check-circle"></i> MongoDB
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-check-circle"></i> Neo4j
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-check-circle"></i> Cassandra
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-check-circle"></i> Oracle
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-check-circle"></i> Firebase
+            </div>
+          </div>
+        </div>
+        <div class="skills-grid hidden" id="data-skills">
+          <div class="skill-card">
+            <h3><i class="fas fa-brain"></i> Machine Learning</h3>
+            <div class="skill-item">
+              <i class="fas fa-check-circle"></i> Python
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-check-circle"></i> Scikit-Learn
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-check-circle"></i> TensorFlow
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-check-circle"></i> Keras
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-check-circle"></i> Pandas
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-check-circle"></i> NumPy
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3><i class="fas fa-chart-bar"></i> Analysis & Visualization</h3>
+            <div class="skill-item"><i class="fas fa-check-circle"></i> R</div>
+            <div class="skill-item">
+              <i class="fas fa-check-circle"></i> Matplotlib
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-check-circle"></i> D3.js
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-check-circle"></i> Power BI
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3><i class="fas fa-language"></i> Languages</h3>
+            <div class="skill-item">
+              <i class="fas fa-check-circle"></i> Arabic
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-check-circle"></i> French
+            </div>
+            <div class="skill-item">
+              <i class="fas fa-check-circle"></i> English
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="bg-gray-100">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="section-title">
+          <h2>Education</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <div class="timeline-date">2023 - Present</div>
+              <h3 class="timeline-title">
+                State Engineer’s Degree in Data Science and IoT
+              </h3>
+              <p class="timeline-location">
+                National Engineering School for Computer Science and Systems
+                Analysis (ENSIAS), Rabat
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item right">
+            <div class="timeline-content">
+              <div class="timeline-date">2021 - 2023</div>
+              <h3 class="timeline-title">
+                Preparatory Classes for Engineering Schools | Physics and
+                Industrial Sciences
+              </h3>
+              <p class="timeline-location">CPGE Ibn Timiya, Marrakech</p>
+            </div>
+          </div>
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <div class="timeline-date">2021</div>
+              <h3 class="timeline-title">
+                International Baccalaureate, French Option | Mathematical
+                Sciences B
+              </h3>
+              <p class="timeline-location">Moulay Idriss High School, Fès</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="section-title">
+          <h2>Projects</h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <img
+                src="/Users/HouDa/Desktop/menace.png"
+                alt="Détection des Menaces Internes"
+                class="project-image"
+              />
+              <div class="project-icon"><i class="fas fa-shield-alt"></i></div>
+              <div class="timeline-date">March - April 2025</div>
+              <h3 class="timeline-title">Insider Threat Detection</h3>
+              <p class="project-description">
+                Designed a system to detect anomalous behaviors in information
+                systems using graph databases.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Neo4j</span>
+                <span class="tech-tag">Cassandra</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Scikit-learn</span>
+                <span class="tech-tag">Cypher</span>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item right">
+            <div class="timeline-content">
+              <img
+                src="/Users/HouDa/Desktop/serre.png"
+                alt="Gestion Intelligente des Serres"
+                class="project-image"
+              />
+              <div class="project-icon"><i class="fas fa-seedling"></i></div>
+              <div class="timeline-date">February 2025 - Present</div>
+              <h3 class="timeline-title">Smart Greenhouse Management</h3>
+              <p class="project-description">
+                Developed an IoT system to monitor and optimize climatic
+                parameters in agricultural greenhouses with predictive model
+                integration.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Raspberry Pi</span>
+                <span class="tech-tag">Arduino</span>
+                <span class="tech-tag">Firebase</span>
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Flask</span>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <video class="project-image" controls>
+                <source
+                  src="/Users/HouDa/Downloads/credit.mov"
+                  type="video/mp4"
+                />
+                Votre navigateur ne supporte pas la vidéo HTML5.
+              </video>
+              <div class="project-icon"><i class="fas fa-university"></i></div>
+              <div class="timeline-date">February 2025</div>
+              <h3 class="timeline-title">Bank Loan Prediction</h3>
+              <p class="project-description">
+                Built a machine learning pipeline for automated loan application
+                evaluation based on historical data.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Pandas</span>
+                <span class="tech-tag">Scikit-learn</span>
+                <span class="tech-tag">Flask</span>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item right">
+            <div class="timeline-content">
+              <img
+                src="/Users/HouDa/Desktop/ppe.png"
+                alt="Détection d'Équipements de Protection"
+                class="project-image"
+              />
+              <div class="project-icon"><i class="fas fa-hard-hat"></i></div>
+              <div class="timeline-date">January - February 2025</div>
+              <h3 class="timeline-title">Safety Equipment Detection</h3>
+              <p class="project-description">
+                Developed a computer vision system for real-time detection of
+                safety equipment using YOLOv8.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">PyTorch</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">OpenCV</span>
+                <span class="tech-tag">YOLO</span>
+                <span class="tech-tag">NumPy</span>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <img
+                src="/Users/HouDa/Desktop/app.png"
+                alt="Application Mobile pour Agents Immobiliers"
+                class="project-image"
+              />
+              <div class="project-icon"><i class="fas fa-mobile-alt"></i></div>
+              <div class="timeline-date">January - March 2025</div>
+              <h3 class="timeline-title">Mobile App for Real Estate Agents</h3>
+              <p class="project-description">
+                Developed an Android application for managing rental properties
+                with an intuitive interface for agents and clients.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Java</span>
+                <span class="tech-tag">Firebase</span>
+                <span class="tech-tag">Android Studio</span>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item right">
+            <div class="timeline-content">
+              <video class="project-image" controls>
+                <source src="/Users/HouDa/Downloads/jee.mov" type="video/mp4" />
+                Votre navigateur ne supporte pas la vidéo HTML5.
+              </video>
+              <div class="project-icon"><i class="fas fa-city"></i></div>
+              <div class="timeline-date">October 2024 - February 2025</div>
+              <h3 class="timeline-title">
+                Real Estate Investor Support Platform
+              </h3>
+              <p class="project-description">
+                Designed a web platform for evaluating urban and real estate
+                projects with an online submission and analysis system.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">J2EE</span>
+                <span class="tech-tag">UML</span>
+                <span class="tech-tag">Bootstrap</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">CSS</span>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item left">
+            <div class="timeline-content">
+              <video class="project-image" controls>
+                <source
+                  src="/Users/HouDa/Desktop/home 2.mov"
+                  type="video/mp4"
+                />
+                Votre navigateur ne supporte pas la vidéo HTML5.
+              </video>
+
+              <div class="project-icon"><i class="fas fa-home"></i></div>
+              <div class="timeline-date">February - May 2024</div>
+              <h3 class="timeline-title">Property Management Platform</h3>
+              <p class="project-description">
+                Developed a web solution to optimize property search, posting,
+                and administration with advanced filtering features.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Laravel</span>
+                <span class="tech-tag">PHP</span>
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">CSS</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">SQL</span>
+              </div>
+            </div>
+          </div>
+          <div class="timeline-item right">
+            <div class="timeline-content">
+              <img
+                src="/Users/HouDa/Desktop/feu.png"
+                alt=""
+                class="project-image"
+              />
+              <div class="project-icon">
+                <i class="fas fa-fire-extinguisher"></i>
+              </div>
+              <div class="timeline-date">December 2022 - March 2023</div>
+              <h3 class="timeline-title">Smart Fire Door System</h3>
+              <p class="project-description">
+                Designed an automated system integrating gas detection, fire
+                alarms, and electromagnetic locks to prevent fire spread.
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">Arduino</span>
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">IoT Sensors</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="bg-gray-100">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="section-title">
+          <h2>Professional Experience</h2>
+        </div>
+        <div class="experience-item">
+          <div class="experience-header">
+            <div>
+              <div class="job-title">Intern - Web Developer</div>
+              <div class="company">AMDL, Rabat</div>
+            </div>
+            <div class="experience-date">August - September 2024</div>
+          </div>
+          <div class="experience-description">
+            <ul>
+              <li>
+                Developed an HR platform to manage employees and leave requests.
+              </li>
+              <li>
+                Improved HR communication with efficient request processing.
+              </li>
+              <li>Optimized personnel administration.</li>
+            </ul>
+            <div class="technologies-used">
+              <h4>Technologies Used:</h4>
+              <div class="project-tech">
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">CSS</span>
+                <span class="tech-tag">Laravel</span>
+                <span class="tech-tag">Tailwind</span>
+                <span class="tech-tag">JavaScript</span>
+                <span class="tech-tag">PHP</span>
+                <span class="tech-tag">UML</span>
+                <span class="tech-tag">Figma</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="section-title">
+          <h2>Certifications</h2>
+        </div>
+        <div class="certifications-container">
+          <div class="certification-card">
+            <img
+              src="/Users/HouDa/Desktop/kub.png"
+              alt="Fondamentaux de Kubernetes"
+              class="certification-image"
+            />
+            <div class="certification-icon"><i class="fas fa-cube"></i></div>
+            <div class="certification-title">Kubernetes Fundamentals</div>
+            <div class="certification-issuer">DataScientist.fr</div>
+          </div>
+          <div class="certification-card">
+            <img
+              src="/Users/HouDa/Desktop/doc.png"
+              alt="Introduction à Docker"
+              class="certification-image"
+            />
+            <div class="certification-icon"><i class="fab fa-docker"></i></div>
+            <div class="certification-title">Introduction to Docker</div>
+            <div class="certification-issuer">DataScientist.fr</div>
+          </div>
+          <div class="certification-card">
+            <img
+              src="/Users/HouDa/Desktop/dv.png"
+              alt="Visualisation de Données"
+              class="certification-image"
+            />
+            <div class="certification-icon">
+              <i class="fas fa-chart-bar"></i>
+            </div>
+            <div class="certification-title">Data Visualization</div>
+            <div class="certification-issuer">freeCodeCamp</div>
+          </div>
+          <div class="certification-card">
+            <img
+              src="/Users/HouDa/Desktop/py.png"
+              alt="Calcul Scientifique avec Python"
+              class="certification-image"
+            />
+            <div class="certification-icon"><i class="fab fa-python"></i></div>
+            <div class="certification-title">
+              Scientific Computing with Python
+            </div>
+            <div class="certification-issuer">freeCodeCamp</div>
+          </div>
+          <div class="certification-card">
+            <img
+              src="/Users/HouDa/Desktop/js.png"
+              alt="Algorithmes et Structures de Données JavaScript"
+              class="certification-image"
+              width="50"
+            />
+            <div class="certification-icon"><i class="fab fa-js"></i></div>
+            <div class="certification-title">
+              JavaScript Algorithms and Data Structures
+            </div>
+            <div class="certification-issuer">freeCodeCamp</div>
+          </div>
+          <div class="certification-card">
+            <img
+              src="/Users/HouDa/Desktop/web.png"
+              alt="Conception Web Responsive"
+              class="certification-image"
+            />
+            <div class="certification-icon"><i class="fas fa-desktop"></i></div>
+            <div class="certification-title">Responsive Web Design</div>
+            <div class="certification-issuer">freeCodeCamp</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="bg-gray-100">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="section-title">
+          <h2>Contact</h2>
+        </div>
+        <div class="contact-container">
+          <div class="contact-info-card">
+            <div class="contact-icon-large">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-method">Email</div>
+            <div class="contact-detail">aitmouchhouda4@gmail.com</div>
+          </div>
+          <div class="contact-info-card">
+            <div class="contact-icon-large"><i class="fas fa-phone"></i></div>
+            <div class="contact-method">Phone</div>
+            <div class="contact-detail">+212 7 61 80 54 37</div>
+          </div>
+          <div class="contact-info-card">
+            <div class="contact-icon-large">
+              <i class="fab fa-linkedin"></i>
+            </div>
+            <div class="contact-method">LinkedIn</div>
+            <div class="contact-detail">Houda AIT MOUCH</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-content">
+        <h3>Houda AIT MOUCH</h3>
+        <p>Software Engineer & Data Scientist</p>
+        <div class="footer-social">
+          <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="footer-copyright">
+          © 2025 Houda AIT MOUCH. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+      try {
+        if (
+          typeof gsap === "undefined" ||
+          typeof ScrollTrigger === "undefined"
+        ) {
+          console.warn(
+            "GSAP or ScrollTrigger failed to load. Applying fallback styles."
+          );
+          document
+            .querySelectorAll(".timeline-item, .experience-item")
+            .forEach((item) => {
+              item.style.opacity = "1";
+              item.style.transform = "none";
+            });
+        }
+
+        particlesJS("particles-js", {
+          particles: {
+            number: { value: 80, density: { enable: true, value_area: 800 } },
+            color: { value: "#ffffff" },
+            shape: { type: "circle" },
+            opacity: { value: 0.5, random: false },
+            size: { value: 3, random: true },
+            line_linked: {
+              enable: true,
+              distance: 150,
+              color: "#ffffff",
+              opacity: 0.4,
+              width: 1,
+            },
+            move: {
+              enable: true,
+              speed: 2,
+              direction: "none",
+              random: false,
+              straight: false,
+              out_mode: "out",
+            },
+          },
+          interactivity: {
+            detect_on: "canvas",
+            events: {
+              onhover: { enable: true, mode: "repulse" },
+              onclick: { enable: true, mode: "push" },
+              resize: true,
+            },
+          },
+        });
+
+        gsap.from(".header-content", {
+          opacity: 0,
+          y: 50,
+          duration: 1,
+          ease: "power3.out",
+        });
+
+        gsap.utils.toArray(".timeline-item").forEach((item, i) => {
+          gsap.fromTo(
+            item,
+            { opacity: 0, x: i % 2 === 0 ? -100 : 100 },
+            {
+              opacity: 1,
+              x: 0,
+              duration: 1,
+              scrollTrigger: {
+                trigger: item,
+                start: "top 90%",
+                toggleActions: "play none none reset",
+              },
+            }
+          );
+        });
+
+        gsap.utils.toArray(".experience-item").forEach((item) => {
+          gsap.fromTo(
+            item,
+            { opacity: 0, y: 50 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 1,
+              scrollTrigger: {
+                trigger: item,
+                start: "top 90%",
+                toggleActions: "play none none reset",
+              },
+            }
+          );
+        });
+
+        window.addEventListener("load", () => {
+          gsap.utils
+            .toArray(".timeline-item, .experience-item")
+            .forEach((item) => {
+              item.style.opacity = "1";
+            });
+        });
+
+        const tabButtons = document.querySelectorAll(".tab-btn");
+        const skillGrids = document.querySelectorAll(".skills-grid");
+
+        tabButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            tabButtons.forEach((btn) => btn.classList.remove("active"));
+            button.classList.add("active");
+
+            skillGrids.forEach((grid) => grid.classList.add("hidden"));
+            document
+              .getElementById(`${button.dataset.tab}-skills`)
+              .classList.remove("hidden");
+          });
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href");
+            const targetElement = document.querySelector(targetId);
+            const navHeight = document.querySelector("nav").offsetHeight || 60;
+            const offsetPosition = targetElement.offsetTop - navHeight;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth",
+            });
+          });
+        });
+
+        window.addEventListener("scroll", () => {
+          const sections = document.querySelectorAll("section");
+          const navLinks = document.querySelectorAll(".nav-link");
+          let current = "";
+          sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            if (pageYOffset >= sectionTop - 200) {
+              current = section.getAttribute("id");
+            }
+          });
+          navLinks.forEach((link) => {
+            link.classList.remove("active");
+            if (link.getAttribute("href").substring(1) === current) {
+              link.classList.add("active");
+            }
+          });
+        });
+      } catch (error) {
+        console.error("JavaScript error:", error);
+        document
+          .querySelectorAll(".timeline-item, .experience-item")
+          .forEach((item) => {
+            item.style.opacity = "1";
+            item.style.transform = "none";
+          });
+      }
+    </script>
+  </body>
+</html>
